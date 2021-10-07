@@ -1,18 +1,18 @@
-import React from 'react';
-import './App.css';
+//#region Imports
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img
-          src="https://files.readme.io/9e810f9-small-developers3x.png"
-          className="App-logo"
-          alt="logo"
-        />
-      </header>
-    </div>
-  );
-}
+import 'assets/styles/global.css';
+import Loader from 'components/Loader';
+import React, { FC } from 'react';
+import Router from 'routes/Router';
+import { LoaderContextProvider } from 'storages/loader/context';
+
+//#endregion
+
+const App: FC = () => (
+    <LoaderContextProvider>
+        <Loader />
+        <Router />
+    </LoaderContextProvider>
+);
 
 export default App;

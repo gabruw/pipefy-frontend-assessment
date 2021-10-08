@@ -2,6 +2,7 @@
 
 import React, { FC } from 'react';
 import { ReactNode } from 'react-transition-group/node_modules/@types/react';
+import TEST_IDS from 'utils/constant/test-props/PipeModal/PipeModalInfo/ids.json';
 import useStyles from './styles';
 
 //#endregion
@@ -21,8 +22,13 @@ const PipeModalInfo: FC<PipeModalInfoProps> = ({ children, text, label, color })
             {children}
 
             <div className={styles.info}>
-                <label className={styles.label}>{label}:</label>
-                <div className={styles.text}>{text}</div>
+                <label data-testid={TEST_IDS.label} className={styles.label}>
+                    {label}:
+                </label>
+
+                <div data-testid={TEST_IDS.text} className={styles.text}>
+                    {text}
+                </div>
             </div>
         </div>
     );

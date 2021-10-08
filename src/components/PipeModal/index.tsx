@@ -7,6 +7,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import Modal from 'containers/Modal';
 import React, { FC, useMemo } from 'react';
 import usePipeContext from 'storages/pipe/context';
+import TEST_IDS from 'utils/constant/test-props/PipeModal/ids.json';
 import PipeModalInfo from './PipeModalInfo';
 import useStyles from './styles';
 
@@ -23,17 +24,26 @@ const PipeModal: FC = () => {
         <Modal ref={modalRef} onClose={() => setPipe()}>
             <div className={styles.container}>
                 <div className={styles.closeContainer}>
-                    <CloseIcon className={styles.iconClose} onClick={() => modalRef?.current.hide()} />
+                    <CloseIcon
+                        className={styles.iconClose}
+                        data-testid={TEST_IDS.closeIcon}
+                        onClick={() => modalRef?.current.hide()}
+                    />
                 </div>
 
                 <div className={styles.header}>
                     <div className={styles.iconContainer}>
-                        <AppsIcon className={styles.iconPipe} />
+                        <AppsIcon data-testid={TEST_IDS.appIcon} className={styles.iconPipe} />
                     </div>
 
                     <div className={styles.infoContainer}>
-                        <div className={styles.name}>{state?.pipe?.name}</div>
-                        <div className={styles.date}>{new Date(date).toLocaleDateString('pt-Br')}</div>
+                        <div data-testid={TEST_IDS.name} className={styles.name}>
+                            {state?.pipe?.name}
+                        </div>
+
+                        <div data-testid={TEST_IDS.date} className={styles.date}>
+                            {new Date(date).toLocaleDateString('pt-Br')}
+                        </div>
                     </div>
                 </div>
 
@@ -48,7 +58,9 @@ const PipeModal: FC = () => {
                         </PipeModalInfo>
                     </div>
 
-                    <div className={styles.description}>{state?.pipe?.description}</div>
+                    <div data-testid={TEST_IDS.description} className={styles.description}>
+                        {state?.pipe?.description}
+                    </div>
                 </div>
             </div>
         </Modal>

@@ -10,6 +10,7 @@ import React, { FC, useEffect } from 'react';
 import usePipesService from 'services/pipe/service';
 import useLoaderContext from 'storages/loader/context';
 import usePipeContext from 'storages/pipe/context';
+import TEST_IDS from 'utils/constant/test-props/PipeCard/ids.json';
 import useStyles from './styles';
 
 //#endregion
@@ -39,16 +40,25 @@ const CardPipe: FC<PipeProps> = ({ pipe }) => {
     }, [setIsLoading, loading]);
 
     return (
-        <Card className={styles.card} variant='outlined' onClick={() => fetchPipe({ variables: { id: pipe.id } })}>
+        <Card
+            variant='outlined'
+            className={styles.card}
+            data-testid={TEST_IDS.card}
+            onClick={() => fetchPipe({ variables: { id: pipe.id } })}
+        >
             <CardContent className={styles.cardContent}>
-                <div className={styles.visibility}>{pipe.public ? <LockOpenIcon /> : <LockIcon />}</div>
-
-                <div>
-                    <AppsIcon className={styles.icon} />
+                <div data-testid={TEST_IDS['visibility-icon']} className={styles.visibility}>
+                    {pipe.public ? <LockOpenIcon /> : <LockIcon />}
                 </div>
 
-                <div className={styles.name}>{pipe.name}</div>
-                <div className={styles.count}>{`${pipe.cards_count} cards`}</div>
+                <div>
+                    <AppsIcon data-testid={TEST_IDS['app-icon']} className={styles.icon} />
+                </div>
+
+                <div data-testid={TEST_IDS.name} className={styles.name}>
+                    {pipe.name}
+                </div>
+                <div data-testid={TEST_IDS['cards-count']} className={styles.count}>{`${pipe.cards_count} cards`}</div>
             </CardContent>
         </Card>
     );

@@ -5,6 +5,7 @@ import MaterialModal from '@material-ui/core/Modal';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { ForwardRefRenderFunction, Ref } from 'react-transition-group/node_modules/@types/react';
+import TEST_IDS from 'utils/constant/test-props/Modal/ids.json';
 import useStyles from './styles';
 
 //#endregion
@@ -51,7 +52,13 @@ const Modal: ForwardRefRenderFunction<ImperativeHandleProps, ModalProps> = (
     }, [isVisible]);
 
     return (
-        <MaterialModal className={styles.modal} open={isVisible} closeAfterTransition hideBackdrop>
+        <MaterialModal
+            hideBackdrop
+            open={isVisible}
+            closeAfterTransition
+            className={styles.modal}
+            data-testid={TEST_IDS.modal}
+        >
             <div className={styles.container}>{children}</div>
         </MaterialModal>
     );

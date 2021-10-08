@@ -10,6 +10,7 @@ import usePipesService from 'services/pipe/service';
 import useLoaderContext from 'storages/loader/context';
 import usePipeContext from 'storages/pipe/context';
 import useStyles from './styles';
+import TEST_IDS from 'utils/constant/test-props/PipeCardList/ids.json';
 
 //#endregion
 
@@ -41,14 +42,14 @@ const PipeCardList: FC = () => {
 
     return (
         <Fragment>
-            <Grid className={styles.listContainer} spacing={2} container>
+            <Grid data-testid={TEST_IDS.gridContainer} className={styles.listContainer} spacing={2} container>
                 {state.pipes.map((pipe: Pipe, index: number) => (
-                    <Grid item xs={12} sm={4} md={3} lg={2}>
-                        <CardPipe key={index} pipe={pipe} />
+                    <Grid data-testid={TEST_IDS.gridItemCardPipe + index} key={index} xs={12} sm={4} md={3} lg={2} item>
+                        <CardPipe pipe={pipe} />
                     </Grid>
                 ))}
 
-                <Grid item xs={12} sm={4} md={3} lg={2}>
+                <Grid data-testid={TEST_IDS.gridItemAddPipeCard} xs={12} sm={4} md={3} lg={2} item>
                     <AddPipeCard />
                 </Grid>
             </Grid>

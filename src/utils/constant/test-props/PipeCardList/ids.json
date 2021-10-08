@@ -1,0 +1,5 @@
+{
+    "gridContainer": "PipeCardList-grid-container",
+    "gridItemCardPipe": "PipeCardList-grid-item-card-pipe",
+    "gridItemAddPipeCard": "PipeCardList-grid-item-add-pipe-card"
+}

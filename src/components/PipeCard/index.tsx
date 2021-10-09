@@ -8,8 +8,8 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import Pipe from 'models/pipe';
 import React, { FC, useEffect } from 'react';
 import usePipesService from 'services/pipe/service';
-import useLoaderContext from 'storages/loader/context';
 import usePipeContext from 'storages/pipe/context';
+import { useLoaderDispatch } from 'storages/system/hooks/loader';
 import TEST_IDS from 'utils/constant/test-props/PipeCard/ids.json';
 import useStyles from './styles';
 
@@ -22,8 +22,8 @@ interface PipeProps {
 const CardPipe: FC<PipeProps> = ({ pipe }) => {
     const styles = useStyles({ color: pipe.color });
 
-    const { setIsLoading } = useLoaderContext();
     const { modalRef, setPipe } = usePipeContext();
+    const { setIsLoadingDispatch } = useLoaderDispatch();
 
     const { getPipeById } = usePipesService();
     const [fetchPipe, { loading, data }] = getPipeById;
@@ -36,8 +36,8 @@ const CardPipe: FC<PipeProps> = ({ pipe }) => {
     }, [data, setPipe, modalRef]);
 
     useEffect(() => {
-        setIsLoading(loading);
-    }, [setIsLoading, loading]);
+        setIsLoadingDispatch(loading);
+    }, [loading]);
 
     return (
         <Card

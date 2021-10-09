@@ -4,8 +4,9 @@ import { MockedProvider } from '@apollo/client/testing';
 import { fireEvent, render, screen } from '@testing-library/react';
 import PipeCard from 'components/PipeCard';
 import PipeModal from 'components/PipeModal';
-import { LoaderContextProvider } from 'storages/loader/context';
+import { Provider } from 'react-redux';
 import { PipeContextProvider } from 'storages/pipe/context';
+import store from 'storages/system/store';
 import MODAL_TEST_IDS from 'utils/constant/test-props/Modal/ids.json';
 import PIPE_CARD_TEST_IDS from 'utils/constant/test-props/PipeCard/ids.json';
 import pipe, { APOLLO_MOCKS } from 'utils/constant/test-props/PipeCard/props';
@@ -15,14 +16,14 @@ import pipe, { APOLLO_MOCKS } from 'utils/constant/test-props/PipeCard/props';
 describe('PipeCard Component', () => {
     beforeEach(() => {
         render(
-            <MockedProvider mocks={APOLLO_MOCKS}>
-                <LoaderContextProvider>
+            <Provider store={store}>
+                <MockedProvider mocks={APOLLO_MOCKS}>
                     <PipeContextProvider>
                         <PipeCard pipe={pipe} />
                         <PipeModal />
                     </PipeContextProvider>
-                </LoaderContextProvider>
-            </MockedProvider>
+                </MockedProvider>
+            </Provider>
         );
     });
 

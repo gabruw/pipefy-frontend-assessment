@@ -7,20 +7,20 @@ import PipeModal from 'components/PipeModal';
 import Pipe from 'models/pipe';
 import React, { FC, Fragment, useEffect } from 'react';
 import usePipesService from 'services/pipe/service';
-import useLoaderContext from 'storages/loader/context';
 import usePipeContext from 'storages/pipe/context';
-import useStyles from './styles';
+import { useLoaderDispatch } from 'storages/system/hooks/loader';
 import TEST_IDS from 'utils/constant/test-props/PipeCardList/ids.json';
+import useStyles from './styles';
 
 //#endregion
 
 const PipeCardList: FC = () => {
     const styles = useStyles();
 
-    const { setIsLoading } = useLoaderContext();
     const { state, setPipes } = usePipeContext();
-    const { getPipesByOrganization } = usePipesService();
+    const { setIsLoadingDispatch } = useLoaderDispatch();
 
+    const { getPipesByOrganization } = usePipesService();
     const [fetchPipes, { data, loading }] = getPipesByOrganization;
 
     useEffect(() => {
@@ -37,8 +37,8 @@ const PipeCardList: FC = () => {
     }, [data, setPipes]);
 
     useEffect(() => {
-        setIsLoading(loading);
-    }, [setIsLoading, loading]);
+        setIsLoadingDispatch(loading);
+    }, [setIsLoadingDispatch, loading]);
 
     return (
         <Fragment>

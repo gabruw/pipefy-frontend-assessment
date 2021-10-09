@@ -2,8 +2,8 @@
 
 import { render, screen } from '@testing-library/react';
 import Loader from 'components/Loader';
-import { FC } from 'react-transition-group/node_modules/@types/react';
-import { LoaderContextProvider } from 'storages/loader/context';
+import { Provider } from 'react-redux';
+import store from 'storages/system/store';
 import TEST_IDS from 'utils/constant/test-props/Loader/ids.json';
 
 //#endregion
@@ -11,9 +11,9 @@ import TEST_IDS from 'utils/constant/test-props/Loader/ids.json';
 describe('Loader Component', () => {
     beforeEach(() => {
         render(
-            <LoaderContextProvider>
+            <Provider store={store}>
                 <Loader />
-            </LoaderContextProvider>
+            </Provider>
         );
     });
 

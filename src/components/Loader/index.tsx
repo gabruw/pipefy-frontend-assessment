@@ -3,7 +3,7 @@
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import React, { FC } from 'react';
-import useLoaderContext from 'storages/loader/context';
+import { useLoaderSelector } from 'storages/system/hooks/loader';
 import TEST_IDS from 'utils/constant/test-props/Loader/ids.json';
 import useStyles from './styles';
 
@@ -11,10 +11,10 @@ import useStyles from './styles';
 
 const Loader: FC = () => {
     const styles = useStyles();
-    const { state } = useLoaderContext();
+    const { isLoading } = useLoaderSelector();
 
     return (
-        <Backdrop data-testid={TEST_IDS.backdrop} className={styles.backdrop} open={state.isLoading}>
+        <Backdrop data-testid={TEST_IDS.backdrop} className={styles.backdrop} open={isLoading}>
             <CircularProgress data-testid={TEST_IDS.icon} size={60} />
         </Backdrop>
     );

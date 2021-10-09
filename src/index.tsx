@@ -1,19 +1,19 @@
 //#region Imports
 
-import { ApolloProvider } from '@apollo/client';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider as ReduxProvider } from 'react-redux';
+import store from 'storages/system/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import client from './services/client';
 
 //#endregion
 
 ReactDOM.render(
     <React.StrictMode>
-        <ApolloProvider client={client}>
+        <ReduxProvider store={store}>
             <App />
-        </ApolloProvider>
+        </ReduxProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

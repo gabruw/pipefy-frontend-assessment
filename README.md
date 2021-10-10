@@ -30,7 +30,7 @@ You don't need to develop the best layout in this phase. Feel free to create you
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-To run this App you will need to create a .env file and add these 2 variables in it:
+To run this App you will need to create a .env file and add these 3 variables in it:
 
 ```
 REACT_APP_PIPEFY_API_URL=https://app.pipefy.com/queries

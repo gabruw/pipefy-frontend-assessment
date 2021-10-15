@@ -1,0 +1,7 @@
+{
+    "card": "PipeCard-card",
+    "name": "PipeCard-name",
+    "appIcon": "PipeCard-appIcon",
+    "cardsCount": "PipeCard-count",
+    "visibilityIcon": "PipeCard-visibilityIcon"
+}

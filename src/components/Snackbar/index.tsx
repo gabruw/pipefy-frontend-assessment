@@ -4,7 +4,7 @@ import MSnackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 import React, { FC } from 'react';
 import { useSnackbarDispatch, useSnackbarSelector } from 'storages/system/hooks/snackbar';
-import TEST_IDS from 'utils/constant/test-props/Snackbar/ids.json';
+import TEST_IDS from 'tests/Snackbar/ids.json';
 import useStyles from './styles';
 
 //#endregion

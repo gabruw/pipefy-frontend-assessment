@@ -2,7 +2,7 @@
 
 import React, { FC } from 'react';
 import { ReactNode } from 'react-transition-group/node_modules/@types/react';
-import TEST_IDS from 'utils/constant/test-props/PipeModal/PipeModalInfo/ids.json';
+import TEST_IDS from 'tests/PipeModal/PipeModalInfo/ids.json';
 import useStyles from './styles';
 
 //#endregion
@@ -14,7 +14,7 @@ interface PipeModalInfoProps {
     text?: string | number;
 }
 
-const PipeModalInfo: FC<PipeModalInfoProps> = ({ children, text, label, color }) => {
+const PipeModalInfoCard: FC<PipeModalInfoProps> = ({ children, text, label, color }) => {
     const styles = useStyles({ color });
 
     return (
@@ -34,4 +34,4 @@ const PipeModalInfo: FC<PipeModalInfoProps> = ({ children, text, label, color })
     );
 };
 
-export default PipeModalInfo;
+export default PipeModalInfoCard;

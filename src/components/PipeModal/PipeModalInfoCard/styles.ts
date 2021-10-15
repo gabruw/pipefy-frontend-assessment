@@ -7,8 +7,9 @@ import ALIGN from 'assets/styles/align';
 
 const toHex = require('colornames');
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     container: {
+        margin: 5,
         borderWidth: 2,
         borderRadius: 5,
         padding: '5px 8px',
@@ -22,11 +23,13 @@ const useStyles = makeStyles({
     },
     label: {
         fontSize: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: theme.palette.primary.dark
     },
     text: {
-        marginLeft: 5
+        marginLeft: 5,
+        color: theme.palette.primary.dark
     }
-});
+}));
 
 export default useStyles;

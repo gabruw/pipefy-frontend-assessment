@@ -1,10 +1,10 @@
 //#region Imports
 
 import { render, screen } from '@testing-library/react';
-import PipeModalInfo from 'components/PipeModal/PipeModalInfo';
-import pipe from 'utils/constant/test-props/PipeCard/props';
-import TEST_IDS from 'utils/constant/test-props/PipeModal/PipeModalInfo/ids.json';
-import { PIPE_MODAL_INFO_PROPS } from 'utils/constant/test-props/PipeModal/PipeModalInfo/props';
+import PipeModalInfo from 'components/PipeModal/PipeModalInfoCard';
+import { PIPE_MOCK } from 'tests/PipeCard/mocks';
+import TEST_IDS from 'tests/PipeModal/PipeModalInfo/ids.json';
+import { PIPE_MODAL_INFO_PROPS } from 'tests/PipeModal/PipeModalInfo/props';
 
 //#endregion
 
@@ -14,7 +14,11 @@ const childrenName: string = 'test-div';
 describe('PipeModalInfo Component', () => {
     beforeEach(() => {
         render(
-            <PipeModalInfo label={PIPE_MODAL_INFO_PROPS.label} text={PIPE_MODAL_INFO_PROPS.text} color={pipe.color}>
+            <PipeModalInfo
+                color={PIPE_MOCK.color}
+                text={PIPE_MODAL_INFO_PROPS.text}
+                label={PIPE_MODAL_INFO_PROPS.label}
+            >
                 <div data-testid='test-div'>{childrenText}</div>
             </PipeModalInfo>
         );

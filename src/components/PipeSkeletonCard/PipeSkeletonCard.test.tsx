@@ -1,14 +1,14 @@
 //#region Imports
 
 import { render, screen } from '@testing-library/react';
-import PipeCardSkeleton from 'components/PipeCardSkeleton';
-import TEST_IDS from 'utils/constant/test-props/PipeCardSkeleton/ids.json';
+import PipeSkeletonCard from 'components/PipeSkeletonCard';
+import TEST_IDS from 'tests/PipeSkeletonCard/ids.json';
 
 //#endregion
 
-describe('PipeCardSkeleton Component', () => {
+describe('PipeSkeletonCard Component', () => {
     beforeEach(() => {
-        render(<PipeCardSkeleton />);
+        render(<PipeSkeletonCard />);
     });
 
     it('check if the skeleton was render', () => {

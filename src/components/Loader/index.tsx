@@ -4,7 +4,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import React, { FC } from 'react';
 import { useLoaderSelector } from 'storages/system/hooks/loader';
-import TEST_IDS from 'utils/constant/test-props/Loader/ids.json';
+import TEST_IDS from 'tests/Loader/ids.json';
 import useStyles from './styles';
 
 //#endregion

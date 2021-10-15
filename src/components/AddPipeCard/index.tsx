@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import AddIcon from '@material-ui/icons/Add';
 import React, { FC } from 'react';
-import TEST_IDS from 'utils/constant/test-props/AddPipeCard/ids.json';
+import TEST_IDS from 'tests/AddPipeCard/ids.json';
 import useStyles from './styles';
 
 //#endregion

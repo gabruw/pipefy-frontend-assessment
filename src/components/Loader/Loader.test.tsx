@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import Loader from 'components/Loader';
 import { Provider } from 'react-redux';
 import store from 'storages/system/store';
-import TEST_IDS from 'utils/constant/test-props/Loader/ids.json';
+import TEST_IDS from 'tests/Loader/ids.json';
 
 //#endregion
 

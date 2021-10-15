@@ -2,7 +2,7 @@
 
 import { render, screen } from '@testing-library/react';
 import AddPipeCard from 'components/AddPipeCard';
-import TEST_IDS from 'utils/constant/test-props/AddPipeCard/ids.json';
+import TEST_IDS from 'tests/AddPipeCard/ids.json';
 
 //#endregion
 

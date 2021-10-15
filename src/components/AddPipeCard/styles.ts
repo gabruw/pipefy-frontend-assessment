@@ -5,13 +5,13 @@ import ALIGN from 'assets/styles/align';
 
 //#endregion
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     card: {
         margin: 5,
         height: 250,
         borderStyle: 'dashed',
-        borderColor: '#D2E0EC',
-        backgroundColor: '#FFFFFF'
+        backgroundColor: 'transparent',
+        borderColor: theme.palette.secondary.main
     },
     cardContent: {
         height: '90%',
@@ -24,19 +24,19 @@ const useStyles = makeStyles({
         height: 80,
         borderRadius: 20,
         marginBottom: 10,
-        backgroundColor: '#EAF1FE',
+        backgroundColor: theme.palette.info.light,
         ...ALIGN.CENTER
     },
     icon: {
         width: 40,
         height: 40,
-        color: '#266AF6'
+        color: theme.palette.info.main
     },
     text: {
         fontSize: 16,
-        color: '#4D616E',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: theme.palette.secondary.dark
     }
-});
+}));
 
 export default useStyles;

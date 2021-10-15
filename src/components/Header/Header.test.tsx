@@ -2,13 +2,19 @@
 
 import { render, screen } from '@testing-library/react';
 import Header from 'components/Header';
-import TEST_IDS from 'utils/constant/test-props/Header/ids.json';
+import { Provider } from 'react-redux';
+import store from 'storages/system/store';
+import TEST_IDS from 'tests/Header/ids.json';
 
 //#endregion
 
 describe('Header Component', () => {
     beforeEach(() => {
-        render(<Header />);
+        render(
+            <Provider store={store}>
+                <Header />
+            </Provider>
+        );
     });
 
     it('check if the logo was render', () => {

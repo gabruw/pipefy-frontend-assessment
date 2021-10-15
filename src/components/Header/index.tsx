@@ -1,7 +1,9 @@
 //#region Imports
 
+import Logo from 'assets/images/header-logo.png';
+import ThemeSwitch from 'components/ThemeSwitch';
 import React, { FC } from 'react';
-import TEST_IDS from 'utils/constant/test-props/Header/ids.json';
+import TEST_IDS from 'tests/Header/ids.json';
 import useStyles from './styles';
 
 //#endregion
@@ -11,12 +13,8 @@ const Header: FC = () => {
 
     return (
         <header className={styles.header}>
-            <img
-                alt='logo'
-                className={styles.logo}
-                data-testid={TEST_IDS.logo}
-                src='https://files.readme.io/9e810f9-small-developers3x.png'
-            />
+            <img data-testid={TEST_IDS.logo} className={styles.logo} src={Logo} alt='logo' />
+            <ThemeSwitch />
         </header>
     );
 };

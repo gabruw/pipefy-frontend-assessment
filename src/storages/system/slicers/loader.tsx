@@ -18,6 +18,7 @@ const { actions, reducer } = createSlice({
         },
         setIsLoading: (state, action: PayloadAction<boolean>) => {
             state.isLoading = action.payload;
+            console.log('setIsLoading');
         }
     }
 });

@@ -7,13 +7,13 @@ import { makeStyles, darken, lighten } from '@material-ui/core/styles';
 
 const toHex = require('colornames');
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     card: {
         margin: 5,
         height: 250,
-        cursor: 'pointer',
         borderColor: ({ color }: any) => color,
-        backgroundColor: ({ color }: any) => lighten(toHex(color), 0.7)
+        backgroundColor: ({ color }: any) => lighten(toHex(color), 0.7),
+        cursor: ({ isCursorPointer }: any) => (isCursorPointer ? 'pointer' : 'unset')
     },
     cardContent: {
         height: '90%',
@@ -25,6 +25,9 @@ const useStyles = makeStyles({
         width: '100%',
         ...ALIGN.LEFT
     },
+    iconContainer: {
+        ...ALIGN.CENTER
+    },
     icon: {
         width: 65,
         height: 65,
@@ -32,13 +35,15 @@ const useStyles = makeStyles({
     },
     name: {
         fontSize: 17,
-        color: '#000000',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: theme.palette.primary.dark,
+        ...ALIGN.CENTER
     },
     count: {
         fontSize: 15,
-        color: ({ color }: any) => darken(toHex(color), 0.9)
+        color: ({ color }: any) => darken(toHex(color), 0.9),
+        ...ALIGN.CENTER
     }
-});
+}));
 
 export default useStyles;

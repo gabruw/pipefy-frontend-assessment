@@ -6,9 +6,16 @@ import ALIGN from 'assets/styles/align';
 //#endregion
 
 const useStyles = makeStyles({
+    listContainer: {
+        padding: 20,
+        width: '100%',
+        ...ALIGN.LEFT,
+        alignItems: 'flex-start'
+    },
     infiniteScroll: {
         display: 'flex',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        overflow: 'hidden'
     },
     loader: {
         margin: 5,

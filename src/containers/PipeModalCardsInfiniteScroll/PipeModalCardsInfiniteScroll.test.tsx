@@ -2,22 +2,24 @@
 
 import { MockedProvider } from '@apollo/client/testing';
 import { render, screen } from '@testing-library/react';
-import PipeCardList from 'components/PipeCardList';
 import { Provider } from 'react-redux';
 import { PipeContextProvider } from 'storages/pipe/context';
 import store from 'storages/system/store';
-import TEST_IDS from 'utils/constant/test-props/PipeCardList/ids.json';
-import { APOLLO_MOCKS } from 'utils/constant/test-props/PipeCardList/props';
+import { getCardsByCardIdMock } from 'tests/PipeModalCardsInfiniteScroll/apollo-mocks';
+import TPipeModalCardsInfiniteScroll from 'tests/PipeModalCardsInfiniteScroll/components/TPipeModalCardsInfiniteScroll';
+import TEST_IDS from 'tests/PipeModalCardsInfiniteScroll/ids.json';
 
 //#endregion
 
-describe('PipeCardList Component', () => {
+describe('PipeModalCardsInfiniteScroll Component', () => {
     beforeEach(() => {
+        getCardsByCardIdMock[0].request.variables.after = null;
+
         render(
             <Provider store={store}>
-                <MockedProvider mocks={APOLLO_MOCKS}>
+                <MockedProvider mocks={getCardsByCardIdMock}>
                     <PipeContextProvider>
-                        <PipeCardList />
+                        <TPipeModalCardsInfiniteScroll />
                     </PipeContextProvider>
                 </MockedProvider>
             </Provider>
@@ -26,11 +28,6 @@ describe('PipeCardList Component', () => {
 
     it('check if the grid container was render', () => {
         const element = screen.getByTestId(TEST_IDS.gridContainer);
-        expect(element).toBeTruthy();
-    });
-
-    it('check if the grid item for add pipe card was render', () => {
-        const element = screen.getByTestId(TEST_IDS.gridItemAddPipeCard);
         expect(element).toBeTruthy();
     });
 });

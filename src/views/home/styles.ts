@@ -5,9 +5,10 @@ import ALIGN from 'assets/styles/align';
 
 //#endregion
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     container: {
-        textAlign: 'center'
+        textAlign: 'center',
+        backgroundColor: theme.palette.background.default
     },
     infoContainer: {
         padding: '0px 30px',
@@ -17,12 +18,13 @@ const useStyles = makeStyles({
     },
     title: {
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: theme.palette.primary.dark
     },
     info: {
         fontSize: 20,
-        color: '#4D616E'
+        color: theme.palette.secondary.dark
     }
-});
+}));
 
 export default useStyles;

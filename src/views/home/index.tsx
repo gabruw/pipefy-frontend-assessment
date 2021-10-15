@@ -1,7 +1,7 @@
 //#region Imports
 
 import Header from 'components/Header';
-import PipeCardList from 'components/PipeCardList';
+import PipeCardList from 'containers/PipeCardList';
 import React, { FC } from 'react';
 import { PipeContextProvider } from 'storages/pipe/context';
 import useStyles from './styles';

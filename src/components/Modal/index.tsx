@@ -1,18 +1,16 @@
 //#region Imports
 
-import { Theme, useTheme } from '@material-ui/core';
 import MaterialModal from '@material-ui/core/Modal';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import CloseIcon from '@material-ui/icons/Close';
 import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { ForwardRefRenderFunction, Ref } from 'react-transition-group/node_modules/@types/react';
-import TEST_IDS from 'utils/constant/test-props/Modal/ids.json';
+import TEST_IDS from 'tests/Modal/ids.json';
 import useStyles from './styles';
 
 //#endregion
 
 interface ModalProps {
     children?: any;
-    width?: number;
     onOpen?: () => any;
     onClose?: () => any;
 }
@@ -24,14 +22,10 @@ interface ImperativeHandleProps {
 }
 
 const Modal: ForwardRefRenderFunction<ImperativeHandleProps, ModalProps> = (
-    { children, width, onOpen, onClose }: ModalProps,
+    { children, onOpen, onClose }: ModalProps,
     ref: Ref<ImperativeHandleProps>
 ) => {
-    const theme: Theme = useTheme();
-    const isLarge = useMediaQuery(theme.breakpoints.up('lg'));
-
-    const styles = useStyles({ isLarge, width });
-
+    const styles = useStyles();
     const [isVisible, setIsVisible] = useState(false);
 
     useImperativeHandle(
@@ -52,14 +46,18 @@ const Modal: ForwardRefRenderFunction<ImperativeHandleProps, ModalProps> = (
     }, [isVisible]);
 
     return (
-        <MaterialModal
-            hideBackdrop
-            open={isVisible}
-            closeAfterTransition
-            className={styles.modal}
-            data-testid={TEST_IDS.modal}
-        >
-            <div className={styles.container}>{children}</div>
+        <MaterialModal className={styles.modal} open={isVisible} hideBackdrop closeAfterTransition>
+            <div data-testid={TEST_IDS.container} className={styles.container}>
+                <div className={styles.closeContainer}>
+                    <CloseIcon
+                        className={styles.closeIcon}
+                        data-testid={TEST_IDS.closeIcon}
+                        onClick={() => setIsVisible(false)}
+                    />
+                </div>
+
+                {children}
+            </div>
         </MaterialModal>
     );
 };

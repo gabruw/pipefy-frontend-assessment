@@ -11,13 +11,23 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
         outline: 0,
+        maxWidth: 800,
+        maxHeight: 600,
         display: 'flex',
+        overflowY: 'auto',
         borderRadius: 10,
         flexDirection: 'column',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
-        backgroundColor: theme.palette.background.paper,
-        minWidth: ({ isLarge, width = 600 }: any) => isLarge && width
+        backgroundColor: theme.palette.background.paper
+    },
+    closeContainer: {
+        width: '100%',
+        ...ALIGN.RIGHT
+    },
+    closeIcon: {
+        cursor: 'pointer',
+        color: theme.palette.primary.dark
     }
 }));
 

@@ -1,9 +1,9 @@
 //#region Imports
 
-import { render, screen } from '@testing-library/react';
-import Modal from 'containers/Modal';
-import TEST_IDS from 'utils/constant/test-props/Modal/ids.json';
-import { modalRef } from 'utils/constant/test-props/Modal/props';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Modal from 'components/Modal';
+import TEST_IDS from 'tests/Modal/ids.json';
+import { modalRef } from 'tests/Modal/props';
 
 //#endregion
 
@@ -12,10 +12,10 @@ describe('Modal Component', () => {
         render(<Modal ref={modalRef} />);
 
         modalRef.current.toggle();
-        const modalOpened = screen.getByTestId(TEST_IDS.modal);
+        const modalOpened = screen.getByTestId(TEST_IDS.container);
 
         modalRef?.current.toggle();
-        const modalClosed = screen.queryByTestId(TEST_IDS.modal);
+        const modalClosed = screen.queryByTestId(TEST_IDS.container);
 
         expect(modalClosed).toBeFalsy();
         expect(modalOpened).toBeTruthy();
@@ -49,6 +49,17 @@ describe('Modal Component', () => {
         modalRef.current.hide();
 
         expect(text).toBe(expectedText);
+    });
+
+    it('check if close icon onClick works', () => {
+        render(<Modal ref={modalRef} />);
+
+        modalRef.current.toggle();
+
+        const element = screen.getByTestId(TEST_IDS.closeIcon);
+        fireEvent.click(element);
+
+        expect(element).toBeTruthy();
     });
 
     it('check if modal children was render', () => {
